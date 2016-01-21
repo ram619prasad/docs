@@ -1,0 +1,22 @@
+<div class="modal fade" id="editFileModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>
+        <h4 class="modal-title" id="myModalLabel">Edit File</h4>
+      </div>
+      <%= simple_form_for @attachment, remote: true, :authenticity_token => true, html: { multipart: :true, class: 'form-horizontal' } do |f| %>
+        <div class="row-fluid">
+          <div class="modal-body">
+            <div class="errors"></div>
+            <%= f.text_field :file_name, label: 'Media', value: @attachment.media_file_name, class: "col-lg-12" %>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-danger" data-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-info">Edit</button>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,5 @@
+<% if @attachment.errors.blank? %>
+	$('#newDoc').modal("hide")	
+<% else %>
+	$(".errors").prepend('<%= escape_javascript(render("shared/error", target: @attachment, :formats => [:html])) %>');
+<% end%>

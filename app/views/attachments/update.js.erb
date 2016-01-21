@@ -1,0 +1,7 @@
+<% if @attachment.errors.blank? %>
+	$("#editFileModal").modal("hide")
+	$('tr').find('td.attachment_<%= @attachment.id %>').html('<%= @attachment.media_file_name %>')
+	<%= add_gritter("This is a notification just for you!", :title => "Please pay attention!") %>
+<% else %>
+	$(".errors").prepend('<%= escape_javascript(render("shared/error", target: @attachment, :formats => [:html])) %>');
+<% end %>
